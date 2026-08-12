@@ -623,20 +623,6 @@ strong { font-weight: 700; }
 }
 .cta-note svg { flex-shrink: 0; }
 
-/* Link de recusa → downsell */
-.decline {
-  display: block;
-  text-align: center;
-  font-size: 0.875rem;
-  color: var(--ink-muted);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  margin: 0 auto 36px;
-  max-width: 460px;
-  line-height: 1.5;
-}
-.decline:hover { color: var(--ink-soft); }
-
 /* ═══════════════════════════════════════════════════════════════
    Garantia (NOVO)
 ═══════════════════════════════════════════════════════════════ */

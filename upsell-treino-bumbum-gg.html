@@ -35,66 +35,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     })(window, document, "clarity", "script", "xssdr8da0e");
 </script>
 <!-- End Microsoft Clarity -->
-<!-- Backredirect — multi-layer, preserva stkn/UTM -->
-<script>
-(function() {
-  var backUrl = '../down1/';
-  var redirected = false;
-  var pageReady = false;
-
-  // Persiste as UTMs (robustez: caso algum script limpe a URL)
-  try {
-    if (window.location.search && window.location.search.length > 1) {
-      localStorage.setItem('utm_query', window.location.search);
-    }
-  } catch (e) {}
-
-  setTimeout(function() { pageReady = true; }, 2000);
-
-  function redirect() {
-    if (redirected) return;
-    redirected = true;
-    var target = backUrl;
-    var search = window.location.search;
-    if (!(search && search.length > 1)) {
-      try { search = localStorage.getItem('utm_query') || ''; } catch (e) { search = ''; }
-    }
-    if (search && search.length > 1) {
-      target += (target.indexOf('?') >= 0 ? '&' : '?') + search.substring(1);
-    }
-    window.location.replace(target);
-  }
-
-  if (window.history && window.history.pushState) {
-    for (var i = 0; i < 5; i++) {
-      history.pushState({ br: i }, '', window.location.href);
-    }
-    // Guarda de clique: navegar pra uma ancora (href="#" ou href="#algo")
-    // TAMBEM dispara popstate no Chrome. Sem isto, um clique no CTA de compra
-    // pode cair no downsell antes do checkout abrir. O botao voltar de verdade
-    // nunca vem logo depois de um clique na pagina.
-    var ultimoClique = 0;
-    document.addEventListener('click', function () { ultimoClique = Date.now(); }, true);
-
-    window.addEventListener('popstate', function () {
-      if (Date.now() - ultimoClique < 1500) return;   // foi ancora/botao, nao "voltar"
-      redirect();
-    });
-  }
-
-  // Exit-intent (desktop) — conservador: só ao sair de verdade pelo topo
-  document.addEventListener('mouseleave', function(e) {
-    if (!pageReady) return;
-    if (e.clientY <= 0 && !e.relatedTarget) redirect();
-  });
-
-  // bfcache (voltar do checkout)
-  window.addEventListener('pageshow', function(e) {
-    if (e.persisted) redirect();
-  });
-})();
-</script>
-<!-- End Backredirect -->
 <!-- UTMify -->
 <script src="./upsell tsl musa elite controle_files/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
 <script>
@@ -530,7 +470,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </svg>
       Pagamento seguro via Pix ou Cartão · Acesso imediato
     </div>
-    <a href="https://bumbum-pessego.com/down1/?utm_source=biojLj6a7bac07707fe00f585b0f07&amp;utm_campaign=&amp;utm_medium=social&amp;utm_content=link_in_bio&amp;utm_term=&amp;src=tp-ct" class="decline" id="ccf91f9b-9050-ebc3-5271-dd6a468f79bf">Não, obrigada. Prefiro continuar só com o Treino Bumbum GG por enquanto.</a>
 
     <!-- ── 11 · STACK DA OFERTA ────────────────────────────────── -->
     <h2 class="section-title">Pra ficar bem claro o que você garante hoje:</h2>
@@ -666,7 +605,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </svg>
       Pagamento seguro via Pix ou Cartão · Acesso imediato
     </div>
-    <a href="https://bumbum-pessego.com/down1/?utm_source=biojLj6a7bac07707fe00f585b0f07&amp;utm_campaign=&amp;utm_medium=social&amp;utm_content=link_in_bio&amp;utm_term=&amp;src=tp-ct" class="decline" id="9f2fbe13-badb-62f7-9a84-55f602fc58ae">Não, obrigada. Prefiro continuar só com o Treino Bumbum GG por enquanto.</a>
 
     <div class="signature">
       <!-- TROCAR src pela foto real do Murilo -->
